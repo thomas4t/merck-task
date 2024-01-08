@@ -1,5 +1,5 @@
 {
-  "name": "@examples/trpc-next-prisma-starter",
+  "name": "merck",
   "version": "10.45.0",
   "private": true,
   "scripts": {
