@@ -21,3 +21,9 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }
+
+// TODO add this, delete migrations, create init migration.
+// model FavoriteCard {
+//   id    String @id @default(uuid())
+//   title String
+// }
