@@ -10,20 +10,8 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
-  id    String @id @default(uuid())
-  title String
-  text  String
-
-  // To return `Date`s intact through the API we use transformers
-  // https://trpc.io/docs/data-transformers
-  // This is unique so it can be used for cursor-based pagination
+model FavoriteChart {
+  id        String   @id @default(uuid())
+  chartId   String   @unique
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
 }
-
-// TODO add this, delete migrations, create init migration.
-// model FavoriteCard {
-//   id    String @id @default(uuid())
-//   title String
-// }

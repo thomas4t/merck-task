@@ -32,7 +32,7 @@ module.exports = getConfig({
   typescript: {
     ignoreBuildErrors: true,
   },
-  // TODO DELETE UNNEEDED
+  // Some packages use require which causes build issues
   transpilePackages: [
     'antd',
     '@antv/g2',

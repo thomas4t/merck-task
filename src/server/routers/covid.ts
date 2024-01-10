@@ -1,15 +1,16 @@
 import axios from 'axios';
 import { router, publicProcedure } from '../trpc';
+import { VaccinationPayload } from '~/types';
+import { TRPCError } from '@trpc/server';
 
-// TODO move into ENV ?
 const endpoint = 'https://api.coronavirus.data.gov.uk/v1/data';
 const metric = 'cumVaccinationCompleteCoverageByVaccinationDatePercentage';
 
-const createVacParams = (areaType = 'nation', areaName = 'england') => {
+const createVaccinationParams = (areaType = 'nation', areaName = 'england') => {
   const filters = [`areaType=${areaType}`, `areaName=${areaName}`].join(';');
   const structure = JSON.stringify({
     date: 'date',
-    cum: metric,
+    percentage: metric,
   });
   const latestBy = metric;
   return {
@@ -20,13 +21,22 @@ const createVacParams = (areaType = 'nation', areaName = 'england') => {
 };
 
 export const covidRouter = router({
-  vacPercentage: publicProcedure.query(async () => {
-    const params = createVacParams();
-    const { data } = await axios.get(endpoint, {
+  vaccination: publicProcedure.query(async () => {
+    const params = createVaccinationParams();
+    const { data } = await axios.get<VaccinationPayload>(endpoint, {
       params,
       timeout: 10000,
     });
 
-    return data;
+    const latest = data.data[0];
+
+    if (!latest) {
+      throw new TRPCError({
+        code: 'NOT_FOUND',
+        message: 'No data found',
+      });
+    }
+
+    return latest;
   }),
 });

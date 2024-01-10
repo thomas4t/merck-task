@@ -3,11 +3,11 @@
  */
 import { createCallerFactory, router } from '../trpc';
 import { covidRouter } from './covid';
-import { postRouter } from './post';
+import { favoritesRouter } from './favorites';
 
 export const appRouter = router({
-  post: postRouter,
   covid: covidRouter,
+  favorites: favoritesRouter,
 });
 
 export const createCaller = createCallerFactory(appRouter);
