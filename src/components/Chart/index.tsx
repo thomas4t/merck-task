@@ -6,7 +6,7 @@ import {
 } from '@ant-design/icons';
 import { Avatar, Button, Card, Divider, Row, Spin } from 'antd';
 import { Typography } from 'antd';
-import G2ChartWrapper, { G2ChartType } from '../G2ChartWrapper/G2ChartWrapper';
+import G2ChartWrapper, { G2ChartType } from '../G2ChartWrapper';
 import { VaccinationData } from '~/types';
 import { processVaccinationData } from './utils';
 import { ChartId } from '~/models/chart';

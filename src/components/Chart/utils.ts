@@ -1,5 +1,5 @@
 import { VaccinationData } from '~/types';
-import { G2ChartData } from '../G2ChartWrapper/G2ChartWrapper';
+import { G2ChartData } from '../G2ChartWrapper';
 
 export const processVaccinationData = (
   data: VaccinationData,

@@ -9,20 +9,10 @@ const prisma = new PrismaClient();
 
 async function main() {
   // const input = {chartId: ''} satisfies Prisma.FavoriteChartCreateInput
-  // const post = await prisma.post.create({
-  //   data: input,
-  //   select: defaultPostSelect,
-  // });
   // await prisma.favoriteChart.create upsert({
   //   where: {
   //     id: firstPostId,
   //   },
-  //   create: {
-  //     id: firstPostId,
-  //     title: 'First Post',
-  //     text: 'This is an example post generated from `prisma/seed.ts`',
-  //   },
-  //   update: {},
   // });
 }
 
