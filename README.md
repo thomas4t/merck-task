@@ -19,6 +19,9 @@
 
 ### Start project
 
+- Create .env from .env.example
+- Add valid env vars
+
 ```bash
 pnpm install
 pnpm dx
