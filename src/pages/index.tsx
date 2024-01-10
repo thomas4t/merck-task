@@ -31,8 +31,8 @@ const IndexPage: NextPageWithLayout = () => {
     await removeFavoriteChart.mutateAsync(input);
   };
 
-  const resolveIsFavorite = (chartId: ChartId) =>
-    favorites.data?.items.some((item) => item.chartId === chartId) || false;
+  const resolveIsFavorite = (chartId: string) =>
+    favorites.data?.items.some((item) => item.chartId === chartId) ?? false;
 
   const isFavoriteLoading =
     addFavoriteChart.isLoading || removeFavoriteChart.isLoading;
